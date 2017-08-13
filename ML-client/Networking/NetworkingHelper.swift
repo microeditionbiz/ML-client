@@ -8,23 +8,22 @@
 
 import UIKit
 
-typealias Payload = [String: AnyObject]
-typealias List = [Payload]
+typealias JSON = [String: AnyObject]
 
 class NetworkingHelper: NSObject {
 
-    static let sharedInstance: NetworkingHelper = NetworkingHelper()
-    lazy var sharedSession = URLSession.shared
+    public static let sharedInstance: NetworkingHelper = NetworkingHelper()
+    private lazy var sharedSession = URLSession.shared
 
     // MARK: - GET
     
-    func executeGETOperation(url: URL, params: [String: String], completionHandler: @escaping ((Payload?, Error?) -> Void)) {
+    public func get(baseURL: String, path: String, params: [String: String], completionHandler: @escaping ((Any?, Error?) -> Void)) {
     
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
-        let url = NetworkingHelper.appendParams(url: url, params: params)
+        let url = NetworkingHelper.buildURL(baseURL: baseURL, path: path, params: params)
         
-        let dataTask = self.sharedSession.dataTask(url: url, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) in
+        let dataTask = sharedSession.dataTask(with: url) { (data, response, error) in
             
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             
@@ -33,47 +32,41 @@ class NetworkingHelper: NSObject {
             }
             else {
                 
-                var json: Payload?
+                var json: Any?
                 var parseError: Error?
             
                 do {
-                    json = try JSONSerialization.jsonObject(with: data!) as? Payload
+                    json = try JSONSerialization.jsonObject(with: data!)
                 } catch {
                     parseError = error
                 }
                 
                 completionHandler(json, parseError)
             }
-        })
+        }
         
         dataTask.resume()
     }
     
-    private static func appendParams(url: URL, params: [String: String]) -> URL {
-        
-        if params.count == 0 {
-            return url
-        } else {
-        
-            var queryItems = [URLQueryItem]()
+    private static func buildURL(baseURL: String, path: String, params: [String: String]) -> URL {
+        var queryItems = [URLQueryItem]()
       
-            for (key, value) in params {
-                let queryItem = URLQueryItem(name: key, value: value)
-                queryItems.append(queryItem)
-            }
-        
-            var urlComponents = URLComponents(url: url)!
-            urlComponents.queryItems = queryItems
-            
-            return urlComponents.url!
+        for (key, value) in params {
+            let queryItem = URLQueryItem(name: key, value: value)
+            queryItems.append(queryItem)
         }
+        
+        var urlComponents = URLComponents(string: "\(baseURL)/\(path)")!
+        urlComponents.queryItems = queryItems
+        
+        return urlComponents.url!
     }
     
     // MARK: - Download
     
-    func downloadContent(fromUrl url: URL, to localUrl: URL, completionHandler: @escaping (URL, URL, Error?) -> Void) {
+    public func downloadContent(fromUrl url: URL, to localUrl: URL, completionHandler: @escaping (URL, URL, Error?) -> Void) {
         
-        let downloadTask = self.sharedSession.downloadTask(with: url) { (downloadedUrl: URL?, response: URLResponse?, error: Error?) in
+        let downloadTask = self.sharedSession.downloadTask(with: url) { (downloadedUrl, response, error) in
             
             if error == nil {
                 FileSystemHelper.sharedInstance.copyFile(atUrl: downloadedUrl!, toUrl: localUrl)

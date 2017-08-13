@@ -7,23 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F009AE047BF4BE53D627B90 /* Pods_ML_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E85D158FA70C7558A7385FC /* Pods_ML_client.framework */; };
 		E78383761F3FECF900688AD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78383751F3FECF900688AD7 /* AppDelegate.swift */; };
-		E78383781F3FECF900688AD7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78383771F3FECF900688AD7 /* ViewController.swift */; };
-		E783837B1F3FECF900688AD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E78383791F3FECF900688AD7 /* Main.storyboard */; };
-		E783837D1F3FECF900688AD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E783837C1F3FECF900688AD7 /* Assets.xcassets */; };
-		E78383801F3FECF900688AD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E783837E1F3FECF900688AD7 /* LaunchScreen.storyboard */; };
 		E783838B1F3FF18400688AD7 /* NetworkingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78383891F3FF18400688AD7 /* NetworkingHelper.swift */; };
+		E783838D1F3FF2CF00688AD7 /* MLAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E783838C1F3FF2CF00688AD7 /* MLAPI.swift */; };
+		E78383921F41058300688AD7 /* CardIssuer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E783838F1F41058300688AD7 /* CardIssuer.swift */; };
+		E78383931F41058300688AD7 /* Installment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78383901F41058300688AD7 /* Installment.swift */; };
+		E78383941F41058300688AD7 /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78383911F41058300688AD7 /* PaymentMethod.swift */; };
+		E783839F1F41082E00688AD7 /* FileSystemHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E783839A1F41082E00688AD7 /* FileSystemHelper.swift */; };
+		E78383A81F41089A00688AD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E78383A21F41089A00688AD7 /* Assets.xcassets */; };
+		E78383A91F41089A00688AD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E78383A31F41089A00688AD7 /* LaunchScreen.storyboard */; };
+		E78383AA1F41089A00688AD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E78383A51F41089A00688AD7 /* Main.storyboard */; };
+		E78383B01F410DC700688AD7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78383AF1F410DC700688AD7 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E85D158FA70C7558A7385FC /* Pods_ML_client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ML_client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		36CD2972245C9935198EB38B /* Pods-ML-client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ML-client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ML-client/Pods-ML-client.debug.xcconfig"; sourceTree = "<group>"; };
+		8F3CED87D246A82F7C12B1C2 /* Pods-ML-client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ML-client.release.xcconfig"; path = "Pods/Target Support Files/Pods-ML-client/Pods-ML-client.release.xcconfig"; sourceTree = "<group>"; };
 		E78383721F3FECF900688AD7 /* ML-client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ML-client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E78383751F3FECF900688AD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E78383771F3FECF900688AD7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E783837A1F3FECF900688AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E783837C1F3FECF900688AD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E783837F1F3FECF900688AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E78383811F3FECF900688AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E78383891F3FF18400688AD7 /* NetworkingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingHelper.swift; sourceTree = "<group>"; };
+		E783838C1F3FF2CF00688AD7 /* MLAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLAPI.swift; sourceTree = "<group>"; };
+		E783838F1F41058300688AD7 /* CardIssuer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardIssuer.swift; sourceTree = "<group>"; };
+		E78383901F41058300688AD7 /* Installment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Installment.swift; sourceTree = "<group>"; };
+		E78383911F41058300688AD7 /* PaymentMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethod.swift; sourceTree = "<group>"; };
+		E783839A1F41082E00688AD7 /* FileSystemHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemHelper.swift; sourceTree = "<group>"; };
+		E78383A21F41089A00688AD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E78383A41F41089A00688AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E78383A61F41089A00688AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E78383A71F41089A00688AD7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E78383AF1F410DC700688AD7 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,16 +45,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F009AE047BF4BE53D627B90 /* Pods_ML_client.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38CD656362B567527318C96F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E85D158FA70C7558A7385FC /* Pods_ML_client.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		81991CA85E21E47CB542829B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				36CD2972245C9935198EB38B /* Pods-ML-client.debug.xcconfig */,
+				8F3CED87D246A82F7C12B1C2 /* Pods-ML-client.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E78383691F3FECF900688AD7 = {
 			isa = PBXGroup;
 			children = (
+				E78383AE1F410DC700688AD7 /* View Controllers */,
+				38CD656362B567527318C96F /* Frameworks */,
 				E78383741F3FECF900688AD7 /* ML-client */,
+				81991CA85E21E47CB542829B /* Pods */,
 				E78383731F3FECF900688AD7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,13 +91,11 @@
 		E78383741F3FECF900688AD7 /* ML-client */ = {
 			isa = PBXGroup;
 			children = (
-				E78383871F3FF18400688AD7 /* Networking */,
 				E78383751F3FECF900688AD7 /* AppDelegate.swift */,
-				E78383771F3FECF900688AD7 /* ViewController.swift */,
-				E78383791F3FECF900688AD7 /* Main.storyboard */,
-				E783837C1F3FECF900688AD7 /* Assets.xcassets */,
-				E783837E1F3FECF900688AD7 /* LaunchScreen.storyboard */,
-				E78383811F3FECF900688AD7 /* Info.plist */,
+				E78383A11F41089A00688AD7 /* Resources */,
+				E78383951F41082E00688AD7 /* Helpers */,
+				E783838E1F3FF60000688AD7 /* Model */,
+				E78383871F3FF18400688AD7 /* Networking */,
 			);
 			path = "ML-client";
 			sourceTree = "<group>";
@@ -70,9 +103,56 @@
 		E78383871F3FF18400688AD7 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				E783838C1F3FF2CF00688AD7 /* MLAPI.swift */,
 				E78383891F3FF18400688AD7 /* NetworkingHelper.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		E783838E1F3FF60000688AD7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E783838F1F41058300688AD7 /* CardIssuer.swift */,
+				E78383901F41058300688AD7 /* Installment.swift */,
+				E78383911F41058300688AD7 /* PaymentMethod.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E78383951F41082E00688AD7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E78383991F41082E00688AD7 /* Fle System */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E78383991F41082E00688AD7 /* Fle System */ = {
+			isa = PBXGroup;
+			children = (
+				E783839A1F41082E00688AD7 /* FileSystemHelper.swift */,
+			);
+			path = "Fle System";
+			sourceTree = "<group>";
+		};
+		E78383A11F41089A00688AD7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E78383A21F41089A00688AD7 /* Assets.xcassets */,
+				E78383A31F41089A00688AD7 /* LaunchScreen.storyboard */,
+				E78383A51F41089A00688AD7 /* Main.storyboard */,
+				E78383A71F41089A00688AD7 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E78383AE1F410DC700688AD7 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E78383AF1F410DC700688AD7 /* ViewController.swift */,
+			);
+			name = "View Controllers";
+			path = "ML-client/View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,9 +162,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E78383841F3FECF900688AD7 /* Build configuration list for PBXNativeTarget "ML-client" */;
 			buildPhases = (
+				CB67CC141A7C926EFA949110 /* [CP] Check Pods Manifest.lock */,
 				E783836E1F3FECF900688AD7 /* Sources */,
 				E783836F1F3FECF900688AD7 /* Frameworks */,
 				E78383701F3FECF900688AD7 /* Resources */,
+				C57B48658E875AEF3D035B16 /* [CP] Embed Pods Frameworks */,
+				92C0A2E571B66D7D5EE29CDC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -135,21 +218,74 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E78383801F3FECF900688AD7 /* LaunchScreen.storyboard in Resources */,
-				E783837D1F3FECF900688AD7 /* Assets.xcassets in Resources */,
-				E783837B1F3FECF900688AD7 /* Main.storyboard in Resources */,
+				E78383AA1F41089A00688AD7 /* Main.storyboard in Resources */,
+				E78383A81F41089A00688AD7 /* Assets.xcassets in Resources */,
+				E78383A91F41089A00688AD7 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		92C0A2E571B66D7D5EE29CDC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ML-client/Pods-ML-client-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C57B48658E875AEF3D035B16 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ML-client/Pods-ML-client-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB67CC141A7C926EFA949110 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E783836E1F3FECF900688AD7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E783839F1F41082E00688AD7 /* FileSystemHelper.swift in Sources */,
 				E783838B1F3FF18400688AD7 /* NetworkingHelper.swift in Sources */,
-				E78383781F3FECF900688AD7 /* ViewController.swift in Sources */,
+				E783838D1F3FF2CF00688AD7 /* MLAPI.swift in Sources */,
+				E78383941F41058300688AD7 /* PaymentMethod.swift in Sources */,
+				E78383931F41058300688AD7 /* Installment.swift in Sources */,
+				E78383921F41058300688AD7 /* CardIssuer.swift in Sources */,
+				E78383B01F410DC700688AD7 /* ViewController.swift in Sources */,
 				E78383761F3FECF900688AD7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -157,20 +293,20 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E78383791F3FECF900688AD7 /* Main.storyboard */ = {
+		E78383A31F41089A00688AD7 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E783837A1F3FECF900688AD7 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E783837E1F3FECF900688AD7 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E783837F1F3FECF900688AD7 /* Base */,
+				E78383A41F41089A00688AD7 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		E78383A51F41089A00688AD7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E78383A61F41089A00688AD7 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -271,10 +407,11 @@
 		};
 		E78383851F3FECF900688AD7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36CD2972245C9935198EB38B /* Pods-ML-client.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PKK38A5A2E;
-				INFOPLIST_FILE = "ML-client/Info.plist";
+				INFOPLIST_FILE = "ML-client/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "microeditionbiz.ML-client";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -284,10 +421,11 @@
 		};
 		E78383861F3FECF900688AD7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F3CED87D246A82F7C12B1C2 /* Pods-ML-client.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PKK38A5A2E;
-				INFOPLIST_FILE = "ML-client/Info.plist";
+				INFOPLIST_FILE = "ML-client/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "microeditionbiz.ML-client";
 				PRODUCT_NAME = "$(TARGET_NAME)";

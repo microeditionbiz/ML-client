@@ -69,3 +69,4 @@ fastlane/test_output
 /ML-client/.DS_Store
 /ML-client/Helpers/.DS_Store
 /ML-client/Helpers/Extensions/.DS_Store
+.DS_Store

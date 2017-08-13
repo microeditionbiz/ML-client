@@ -1,0 +1,6 @@
+framework module Pods_ML_client {
+  umbrella header "Pods-ML-client-umbrella.h"
+
+  export *
+  module * { export * }
+}
