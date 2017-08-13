@@ -12,6 +12,7 @@
 		E783837B1F3FECF900688AD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E78383791F3FECF900688AD7 /* Main.storyboard */; };
 		E783837D1F3FECF900688AD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E783837C1F3FECF900688AD7 /* Assets.xcassets */; };
 		E78383801F3FECF900688AD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E783837E1F3FECF900688AD7 /* LaunchScreen.storyboard */; };
+		E783838B1F3FF18400688AD7 /* NetworkingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78383891F3FF18400688AD7 /* NetworkingHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		E783837C1F3FECF900688AD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E783837F1F3FECF900688AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E78383811F3FECF900688AD7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E78383891F3FF18400688AD7 /* NetworkingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 		E78383741F3FECF900688AD7 /* ML-client */ = {
 			isa = PBXGroup;
 			children = (
+				E78383871F3FF18400688AD7 /* Networking */,
 				E78383751F3FECF900688AD7 /* AppDelegate.swift */,
 				E78383771F3FECF900688AD7 /* ViewController.swift */,
 				E78383791F3FECF900688AD7 /* Main.storyboard */,
@@ -62,6 +65,14 @@
 				E78383811F3FECF900688AD7 /* Info.plist */,
 			);
 			path = "ML-client";
+			sourceTree = "<group>";
+		};
+		E78383871F3FF18400688AD7 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				E78383891F3FF18400688AD7 /* NetworkingHelper.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E783838B1F3FF18400688AD7 /* NetworkingHelper.swift in Sources */,
 				E78383781F3FECF900688AD7 /* ViewController.swift in Sources */,
 				E78383761F3FECF900688AD7 /* AppDelegate.swift in Sources */,
 			);
@@ -302,6 +314,7 @@
 				E78383861F3FECF900688AD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
