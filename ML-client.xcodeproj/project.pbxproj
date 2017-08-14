@@ -10,9 +10,9 @@
 		7F009AE047BF4BE53D627B90 /* Pods_ML_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E85D158FA70C7558A7385FC /* Pods_ML_client.framework */; };
 		E78383761F3FECF900688AD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78383751F3FECF900688AD7 /* AppDelegate.swift */; };
 		E783838B1F3FF18400688AD7 /* NetworkingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78383891F3FF18400688AD7 /* NetworkingHelper.swift */; };
-		E783838D1F3FF2CF00688AD7 /* MLAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E783838C1F3FF2CF00688AD7 /* MLAPI.swift */; };
+		E783838D1F3FF2CF00688AD7 /* MPAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E783838C1F3FF2CF00688AD7 /* MPAPI.swift */; };
 		E78383921F41058300688AD7 /* CardIssuer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E783838F1F41058300688AD7 /* CardIssuer.swift */; };
-		E78383931F41058300688AD7 /* Installment.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78383901F41058300688AD7 /* Installment.swift */; };
+		E78383931F41058300688AD7 /* Installments.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78383901F41058300688AD7 /* Installments.swift */; };
 		E78383941F41058300688AD7 /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78383911F41058300688AD7 /* PaymentMethod.swift */; };
 		E783839F1F41082E00688AD7 /* FileSystemHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E783839A1F41082E00688AD7 /* FileSystemHelper.swift */; };
 		E78383A81F41089A00688AD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E78383A21F41089A00688AD7 /* Assets.xcassets */; };
@@ -30,6 +30,7 @@
 		E790893B1F41F388008650CF /* URL+md5Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = E790893A1F41F388008650CF /* URL+md5Hash.swift */; };
 		E790893E1F41F396008650CF /* RemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E790893D1F41F396008650CF /* RemoteImageView.swift */; };
 		E79089441F420304008650CF /* CardIssuerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79089431F420304008650CF /* CardIssuerCell.swift */; };
+		E79089461F420737008650CF /* PayerCostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79089451F420737008650CF /* PayerCostCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,9 +40,9 @@
 		E78383721F3FECF900688AD7 /* ML-client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ML-client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E78383751F3FECF900688AD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E78383891F3FF18400688AD7 /* NetworkingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkingHelper.swift; sourceTree = "<group>"; };
-		E783838C1F3FF2CF00688AD7 /* MLAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLAPI.swift; sourceTree = "<group>"; };
+		E783838C1F3FF2CF00688AD7 /* MPAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPAPI.swift; sourceTree = "<group>"; };
 		E783838F1F41058300688AD7 /* CardIssuer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardIssuer.swift; sourceTree = "<group>"; };
-		E78383901F41058300688AD7 /* Installment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Installment.swift; sourceTree = "<group>"; };
+		E78383901F41058300688AD7 /* Installments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Installments.swift; sourceTree = "<group>"; };
 		E78383911F41058300688AD7 /* PaymentMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethod.swift; sourceTree = "<group>"; };
 		E783839A1F41082E00688AD7 /* FileSystemHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemHelper.swift; sourceTree = "<group>"; };
 		E78383A21F41089A00688AD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,6 +62,7 @@
 		E790893D1F41F396008650CF /* RemoteImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteImageView.swift; sourceTree = "<group>"; };
 		E790893F1F41F531008650CF /* ML-client-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ML-client-Bridging-Header.h"; sourceTree = "<group>"; };
 		E79089431F420304008650CF /* CardIssuerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardIssuerCell.swift; sourceTree = "<group>"; };
+		E79089451F420737008650CF /* PayerCostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayerCostCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +129,7 @@
 		E78383871F3FF18400688AD7 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				E783838C1F3FF2CF00688AD7 /* MLAPI.swift */,
+				E783838C1F3FF2CF00688AD7 /* MPAPI.swift */,
 				E78383891F3FF18400688AD7 /* NetworkingHelper.swift */,
 			);
 			path = Networking;
@@ -137,7 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				E783838F1F41058300688AD7 /* CardIssuer.swift */,
-				E78383901F41058300688AD7 /* Installment.swift */,
+				E78383901F41058300688AD7 /* Installments.swift */,
 				E78383911F41058300688AD7 /* PaymentMethod.swift */,
 				E79089341F41ED2D008650CF /* PaymentInfo.swift */,
 			);
@@ -179,6 +181,7 @@
 				E78383B11F41135B00688AD7 /* AmountViewController.swift */,
 				E79089431F420304008650CF /* CardIssuerCell.swift */,
 				E78383B51F41139000688AD7 /* CardIssuersViewController.swift */,
+				E79089451F420737008650CF /* PayerCostCell.swift */,
 				E78383B71F41139E00688AD7 /* InstallmentsViewController.swift */,
 				E79089381F41F34E008650CF /* PaymentMethodCell.swift */,
 				E78383B31F41137000688AD7 /* PaymentMethodsViewController.swift */,
@@ -337,15 +340,16 @@
 				E783838B1F3FF18400688AD7 /* NetworkingHelper.swift in Sources */,
 				E78383B61F41139000688AD7 /* CardIssuersViewController.swift in Sources */,
 				E79089351F41ED2D008650CF /* PaymentInfo.swift in Sources */,
+				E79089461F420737008650CF /* PayerCostCell.swift in Sources */,
 				E78383B41F41137000688AD7 /* PaymentMethodsViewController.swift in Sources */,
 				E78383C81F41306600688AD7 /* UIColor+Extension.swift in Sources */,
 				E790893B1F41F388008650CF /* URL+md5Hash.swift in Sources */,
 				E790893E1F41F396008650CF /* RemoteImageView.swift in Sources */,
 				E78383B21F41135B00688AD7 /* AmountViewController.swift in Sources */,
-				E783838D1F3FF2CF00688AD7 /* MLAPI.swift in Sources */,
+				E783838D1F3FF2CF00688AD7 /* MPAPI.swift in Sources */,
 				E79089441F420304008650CF /* CardIssuerCell.swift in Sources */,
 				E78383941F41058300688AD7 /* PaymentMethod.swift in Sources */,
-				E78383931F41058300688AD7 /* Installment.swift in Sources */,
+				E78383931F41058300688AD7 /* Installments.swift in Sources */,
 				E79089371F41F279008650CF /* UIAlertController+Simplified.swift in Sources */,
 				E78383921F41058300688AD7 /* CardIssuer.swift in Sources */,
 				E78383761F3FECF900688AD7 /* AppDelegate.swift in Sources */,

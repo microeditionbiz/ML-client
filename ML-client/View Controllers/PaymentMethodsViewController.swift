@@ -31,7 +31,7 @@ class PaymentMethodsViewController: UIViewController {
     // MARK: - Networking
     
     private func loadData() {
-        MLAPI.sharedInstance.paymentMethods { (paymentMethods, error) in
+        MPAPI.sharedInstance.paymentMethods { (paymentMethods, error) in
             if let error = error {
                 UIAlertController.presentAlert(withError: error, overViewController: self)
             } else {

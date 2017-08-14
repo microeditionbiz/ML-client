@@ -23,9 +23,12 @@ class CardIssuersViewController: UIViewController {
     // MARK: - Networking
     
     private func loadData() {
-        let paymentMethodId = (paymentInfo?.paymentMethod?.id)!
+        guard let paymentMethodId = paymentInfo?.paymentMethod?.id else {
+            assertionFailure("Missing Required info")
+            return
+        }
         
-        MLAPI.sharedInstance.cardIssuers(paymentMethodId: paymentMethodId) { (cardIssuers, error) in
+        MPAPI.sharedInstance.cardIssuers(paymentMethodId: paymentMethodId) { (cardIssuers, error) in
             if let error = error {
                 UIAlertController.presentAlert(withError: error, overViewController: self)
             } else {

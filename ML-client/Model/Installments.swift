@@ -1,5 +1,5 @@
 //
-//  Installment.swift
+//  Installments.swift
 //
 //  Created by Pablo Romero on 8/13/17
 //  Copyright (c) . All rights reserved.
@@ -8,7 +8,7 @@
 import Foundation
 import ObjectMapper
 
-public class Installment: Mappable {
+public class Installments: Mappable {
 
     public class Issuer: Mappable {
         
@@ -37,7 +37,7 @@ public class Installment: Mappable {
         
     }
     
-    public class PayerCosts: Mappable {
+    public class PayerCost: Mappable {
         
         private struct SerializationKeys {
             static let discountRate = "discount_rate"
@@ -94,7 +94,7 @@ public class Installment: Mappable {
     public var paymentMethodId: String?
     public var paymentTypeId: String?
     public var processingMode: String?
-    public var payerCosts: [PayerCosts]?
+    public var payerCosts: [PayerCost]?
     
     public required init?(map: Map) {
         

@@ -12,7 +12,7 @@ struct PaymentInfo {
     var amount: Double
     var paymentMethod: PaymentMethod?
     var cardIssuer: CardIssuer?
-    var installment: Installment?
+    var installments: Installments?
 
     init(amount: Double) {
         self.amount = amount

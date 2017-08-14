@@ -11,6 +11,6 @@ import UIKit
 class PaymentStepViewController: UIViewController {
     
     var paymentInfo: PaymentInfo?
-    let networking = MLAPI.sharedInstance
+    let networking = MPAPI.sharedInstance
     
 }

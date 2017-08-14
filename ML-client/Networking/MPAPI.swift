@@ -8,9 +8,9 @@
 
 import UIKit
 
-class MLAPI: NSObject {
+class MPAPI: NSObject {
 
-    public static let sharedInstance: MLAPI = MLAPI()
+    public static let sharedInstance: MPAPI = MPAPI()
     
     private let baseURL = "https://api.mercadopago.com/v1"
     private let publicKey = "444a9ef5-8a6b-429f-abdf-587639155d88"
@@ -57,7 +57,7 @@ class MLAPI: NSObject {
         }
     }
     
-    public func installments(paymentMethodId: String, issuerId: String, amount: Double, completion: @escaping (([Installment]?, Error?) -> Void)) {
+    public func installments(paymentMethodId: String, issuerId: String, amount: Double, completion: @escaping ((Installments?, Error?) -> Void)) {
         
         let params = ["public_key": publicKey,
                       "payment_method_id": paymentMethodId,
@@ -66,12 +66,10 @@ class MLAPI: NSObject {
         
         networking.get(baseURL: baseURL, path: "payment_methods/installments", params: params) { (response, error) in
             
-            var installments: [Installment]?
+            var installments: Installments?
             
-            if let response = response as? [JSON], error == nil {
-                installments = response.map({ (json) -> Installment in
-                    return Installment(JSON: json)!
-                })
+            if let response = response as? [JSON], let firstElement = response.first, error == nil {
+                installments = Installments(JSON: firstElement)
             }
             
             DispatchQueue.main.async {
