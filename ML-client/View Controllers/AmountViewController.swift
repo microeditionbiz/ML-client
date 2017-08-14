@@ -14,6 +14,14 @@ class AmountViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var nextButtonBottomConstraint: NSLayoutConstraint!
     
+    var currentAmount: Double {
+        if let text = amountTextField.text, let amount = Double(text) {
+            return amount
+        } else {
+            return 0
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -56,11 +64,7 @@ class AmountViewController: UIViewController {
     // MARK: - Next button
     
     private func refreshNextButtonEnabledState() {
-        var enabled = false
-        if let amount = amountTextField.text {
-            enabled = !amount.isEmpty
-        }
-        
+        let enabled = currentAmount > 0
         nextButton.isEnabled = enabled
         nextButton.backgroundColor = enabled ? UIColor.mpBlue : UIColor.lightGray.withAlphaComponent(0.25)
     }
@@ -113,17 +117,13 @@ class AmountViewController: UIViewController {
     // MARK: - Navigation
 
     func showPaymentMethodViewController() {
-        
+        performSegue(withIdentifier: "ShowPaymentMethods", sender: PaymentInfo(amount: currentAmount))
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        if let viewController = segue.destination as? PaymentMethodsViewController, let paymentInfo = sender as? PaymentInfo {
+            viewController.paymentInfo = paymentInfo
+        }
     }
 
-}
-
-extension AmountViewController: UITextFieldDelegate {
-    
-    
-    
 }

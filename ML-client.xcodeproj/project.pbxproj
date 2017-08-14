@@ -17,14 +17,19 @@
 		E783839F1F41082E00688AD7 /* FileSystemHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E783839A1F41082E00688AD7 /* FileSystemHelper.swift */; };
 		E78383A81F41089A00688AD7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E78383A21F41089A00688AD7 /* Assets.xcassets */; };
 		E78383A91F41089A00688AD7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E78383A31F41089A00688AD7 /* LaunchScreen.storyboard */; };
-		E78383AA1F41089A00688AD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E78383A51F41089A00688AD7 /* Main.storyboard */; };
+		E78383AA1F41089A00688AD7 /* PaymentFlow.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E78383A51F41089A00688AD7 /* PaymentFlow.storyboard */; };
 		E78383B21F41135B00688AD7 /* AmountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78383B11F41135B00688AD7 /* AmountViewController.swift */; };
 		E78383B41F41137000688AD7 /* PaymentMethodsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78383B31F41137000688AD7 /* PaymentMethodsViewController.swift */; };
 		E78383B61F41139000688AD7 /* CardIssuersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78383B51F41139000688AD7 /* CardIssuersViewController.swift */; };
 		E78383B81F41139E00688AD7 /* InstallmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78383B71F41139E00688AD7 /* InstallmentsViewController.swift */; };
-		E78383BE1F411E3B00688AD7 /* PaymentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78383BD1F411E3B00688AD7 /* PaymentController.swift */; };
-		E78383C11F411EDF00688AD7 /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78383C01F411EDF00688AD7 /* PaymentManager.swift */; };
 		E78383C81F41306600688AD7 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78383C71F41306600688AD7 /* UIColor+Extension.swift */; };
+		E79089331F41EC97008650CF /* PaymentStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79089321F41EC97008650CF /* PaymentStepViewController.swift */; };
+		E79089351F41ED2D008650CF /* PaymentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79089341F41ED2D008650CF /* PaymentInfo.swift */; };
+		E79089371F41F279008650CF /* UIAlertController+Simplified.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79089361F41F279008650CF /* UIAlertController+Simplified.swift */; };
+		E79089391F41F34E008650CF /* PaymentMethodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79089381F41F34E008650CF /* PaymentMethodCell.swift */; };
+		E790893B1F41F388008650CF /* URL+md5Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = E790893A1F41F388008650CF /* URL+md5Hash.swift */; };
+		E790893E1F41F396008650CF /* RemoteImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E790893D1F41F396008650CF /* RemoteImageView.swift */; };
+		E79089441F420304008650CF /* CardIssuerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79089431F420304008650CF /* CardIssuerCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,15 +46,21 @@
 		E783839A1F41082E00688AD7 /* FileSystemHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemHelper.swift; sourceTree = "<group>"; };
 		E78383A21F41089A00688AD7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E78383A41F41089A00688AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E78383A61F41089A00688AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E78383A61F41089A00688AD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/PaymentFlow.storyboard; sourceTree = "<group>"; };
 		E78383A71F41089A00688AD7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E78383B11F41135B00688AD7 /* AmountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmountViewController.swift; sourceTree = "<group>"; };
 		E78383B31F41137000688AD7 /* PaymentMethodsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodsViewController.swift; sourceTree = "<group>"; };
 		E78383B51F41139000688AD7 /* CardIssuersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardIssuersViewController.swift; sourceTree = "<group>"; };
 		E78383B71F41139E00688AD7 /* InstallmentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstallmentsViewController.swift; sourceTree = "<group>"; };
-		E78383BD1F411E3B00688AD7 /* PaymentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentController.swift; sourceTree = "<group>"; };
-		E78383C01F411EDF00688AD7 /* PaymentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentManager.swift; sourceTree = "<group>"; };
 		E78383C71F41306600688AD7 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		E79089321F41EC97008650CF /* PaymentStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentStepViewController.swift; sourceTree = "<group>"; };
+		E79089341F41ED2D008650CF /* PaymentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentInfo.swift; sourceTree = "<group>"; };
+		E79089361F41F279008650CF /* UIAlertController+Simplified.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Simplified.swift"; sourceTree = "<group>"; };
+		E79089381F41F34E008650CF /* PaymentMethodCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodCell.swift; sourceTree = "<group>"; };
+		E790893A1F41F388008650CF /* URL+md5Hash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URL+md5Hash.swift"; sourceTree = "<group>"; };
+		E790893D1F41F396008650CF /* RemoteImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteImageView.swift; sourceTree = "<group>"; };
+		E790893F1F41F531008650CF /* ML-client-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ML-client-Bridging-Header.h"; sourceTree = "<group>"; };
+		E79089431F420304008650CF /* CardIssuerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardIssuerCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,9 +113,9 @@
 		E78383741F3FECF900688AD7 /* ML-client */ = {
 			isa = PBXGroup;
 			children = (
+				E790893F1F41F531008650CF /* ML-client-Bridging-Header.h */,
 				E78383751F3FECF900688AD7 /* AppDelegate.swift */,
 				E78383AE1F410DC700688AD7 /* View Controllers */,
-				E78383BF1F411EA300688AD7 /* Managers */,
 				E78383951F41082E00688AD7 /* Helpers */,
 				E783838E1F3FF60000688AD7 /* Model */,
 				E78383871F3FF18400688AD7 /* Networking */,
@@ -128,6 +139,7 @@
 				E783838F1F41058300688AD7 /* CardIssuer.swift */,
 				E78383901F41058300688AD7 /* Installment.swift */,
 				E78383911F41058300688AD7 /* PaymentMethod.swift */,
+				E79089341F41ED2D008650CF /* PaymentInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -135,6 +147,7 @@
 		E78383951F41082E00688AD7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				E790893C1F41F396008650CF /* UI */,
 				E78383C21F41304A00688AD7 /* Extensions */,
 				E78383991F41082E00688AD7 /* Fle System */,
 			);
@@ -154,7 +167,7 @@
 			children = (
 				E78383A21F41089A00688AD7 /* Assets.xcassets */,
 				E78383A31F41089A00688AD7 /* LaunchScreen.storyboard */,
-				E78383A51F41089A00688AD7 /* Main.storyboard */,
+				E78383A51F41089A00688AD7 /* PaymentFlow.storyboard */,
 				E78383A71F41089A00688AD7 /* Info.plist */,
 			);
 			path = Resources;
@@ -164,28 +177,32 @@
 			isa = PBXGroup;
 			children = (
 				E78383B11F41135B00688AD7 /* AmountViewController.swift */,
-				E78383B31F41137000688AD7 /* PaymentMethodsViewController.swift */,
+				E79089431F420304008650CF /* CardIssuerCell.swift */,
 				E78383B51F41139000688AD7 /* CardIssuersViewController.swift */,
 				E78383B71F41139E00688AD7 /* InstallmentsViewController.swift */,
-				E78383BD1F411E3B00688AD7 /* PaymentController.swift */,
+				E79089381F41F34E008650CF /* PaymentMethodCell.swift */,
+				E78383B31F41137000688AD7 /* PaymentMethodsViewController.swift */,
+				E79089321F41EC97008650CF /* PaymentStepViewController.swift */,
 			);
 			path = "View Controllers";
-			sourceTree = "<group>";
-		};
-		E78383BF1F411EA300688AD7 /* Managers */ = {
-			isa = PBXGroup;
-			children = (
-				E78383C01F411EDF00688AD7 /* PaymentManager.swift */,
-			);
-			path = Managers;
 			sourceTree = "<group>";
 		};
 		E78383C21F41304A00688AD7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E790893A1F41F388008650CF /* URL+md5Hash.swift */,
+				E79089361F41F279008650CF /* UIAlertController+Simplified.swift */,
 				E78383C71F41306600688AD7 /* UIColor+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E790893C1F41F396008650CF /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				E790893D1F41F396008650CF /* RemoteImageView.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +241,7 @@
 					E78383711F3FECF900688AD7 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = PKK38A5A2E;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -251,7 +269,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E78383AA1F41089A00688AD7 /* Main.storyboard in Resources */,
+				E78383AA1F41089A00688AD7 /* PaymentFlow.storyboard in Resources */,
 				E78383A81F41089A00688AD7 /* Assets.xcassets in Resources */,
 				E78383A91F41089A00688AD7 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -313,17 +331,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				E78383B81F41139E00688AD7 /* InstallmentsViewController.swift in Sources */,
-				E78383C11F411EDF00688AD7 /* PaymentManager.swift in Sources */,
+				E79089391F41F34E008650CF /* PaymentMethodCell.swift in Sources */,
+				E79089331F41EC97008650CF /* PaymentStepViewController.swift in Sources */,
 				E783839F1F41082E00688AD7 /* FileSystemHelper.swift in Sources */,
 				E783838B1F3FF18400688AD7 /* NetworkingHelper.swift in Sources */,
 				E78383B61F41139000688AD7 /* CardIssuersViewController.swift in Sources */,
+				E79089351F41ED2D008650CF /* PaymentInfo.swift in Sources */,
 				E78383B41F41137000688AD7 /* PaymentMethodsViewController.swift in Sources */,
 				E78383C81F41306600688AD7 /* UIColor+Extension.swift in Sources */,
+				E790893B1F41F388008650CF /* URL+md5Hash.swift in Sources */,
+				E790893E1F41F396008650CF /* RemoteImageView.swift in Sources */,
 				E78383B21F41135B00688AD7 /* AmountViewController.swift in Sources */,
-				E78383BE1F411E3B00688AD7 /* PaymentController.swift in Sources */,
 				E783838D1F3FF2CF00688AD7 /* MLAPI.swift in Sources */,
+				E79089441F420304008650CF /* CardIssuerCell.swift in Sources */,
 				E78383941F41058300688AD7 /* PaymentMethod.swift in Sources */,
 				E78383931F41058300688AD7 /* Installment.swift in Sources */,
+				E79089371F41F279008650CF /* UIAlertController+Simplified.swift in Sources */,
 				E78383921F41058300688AD7 /* CardIssuer.swift in Sources */,
 				E78383761F3FECF900688AD7 /* AppDelegate.swift in Sources */,
 			);
@@ -340,12 +363,12 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		E78383A51F41089A00688AD7 /* Main.storyboard */ = {
+		E78383A51F41089A00688AD7 /* PaymentFlow.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				E78383A61F41089A00688AD7 /* Base */,
 			);
-			name = Main.storyboard;
+			name = PaymentFlow.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -449,11 +472,14 @@
 			baseConfigurationReference = 36CD2972245C9935198EB38B /* Pods-ML-client.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = PKK38A5A2E;
 				INFOPLIST_FILE = "ML-client/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "microeditionbiz.ML-client";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ML-client/ML-client-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -463,11 +489,13 @@
 			baseConfigurationReference = 8F3CED87D246A82F7C12B1C2 /* Pods-ML-client.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = PKK38A5A2E;
 				INFOPLIST_FILE = "ML-client/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "microeditionbiz.ML-client";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ML-client/ML-client-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

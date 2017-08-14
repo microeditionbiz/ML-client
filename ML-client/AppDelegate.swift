@@ -12,14 +12,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    let paymentManager = PaymentManager()
-    
+   
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
-        window = UIWindow()
-        window?.rootViewController = paymentManager.controller
-        window?.makeKeyAndVisible()
-        
+
         return true
     }
 

@@ -1,8 +1,8 @@
 //
 //  FileSystemHelper.swift
-//  reddit-client
+//  ML-client
 //
-//  Created by Pablo Romero on 1/20/17.
+//  Created by Pablo Romero on 8/14/17.
 //  Copyright © 2017 Pablo Romero. All rights reserved.
 //
 
@@ -30,4 +30,5 @@ class FileSystemHelper: NSObject {
         let path = paths.first!
         return URL(fileURLWithPath: path)
     }
+    
 }

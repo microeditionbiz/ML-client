@@ -8,9 +8,9 @@
 
 import UIKit
 
-class RedditAPI: NSObject {
+class MLAPI: NSObject {
 
-    public static let sharedInstance: RedditAPI = RedditAPI()
+    public static let sharedInstance: MLAPI = MLAPI()
     
     private let baseURL = "https://api.mercadopago.com/v1"
     private let publicKey = "444a9ef5-8a6b-429f-abdf-587639155d88"
