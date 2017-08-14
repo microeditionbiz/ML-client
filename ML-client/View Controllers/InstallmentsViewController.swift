@@ -13,11 +13,22 @@ class InstallmentsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     var paymentInfo: PaymentInfo?
     var installments: Installments?
+    var selectedPayerCost: Installments.PayerCost?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupTableView()
+        
         loadData()
+    }
+    
+    // MARK: - Setup
+    
+    private func setupTableView() {
+        // This is to don't have empty cells
+        tableView.tableFooterView = UIView()
+        tableView.backgroundColor = UIColor.clear
     }
     
     // MARK: - Networking
@@ -38,18 +49,26 @@ class InstallmentsViewController: UIViewController {
         }
     }
     
+    // MARK: - Actions
+    
+    @IBAction func payAction(_ sender: UIBarButtonItem) {
+        if selectedPayerCost == nil {
+            UIAlertController.presentAlert(message: "Primero debe seleccionar un plan de pagos.", overViewController: self)
+        } else {
+            completePaymentFlow()
+        }
+    }
+    
     // MARK: - Navigation
     
-//    fileprivate func showInstallmentsViewController(withCardIssuer cardIssuer: CardIssuer) {
-//        paymentInfo?.cardIssuer = cardIssuer
-//        performSegue(withIdentifier: "ShowInstallments", sender: nil)
-//    }
-//    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let viewController = segue.destination as? InstallmentsViewController {
-//            viewController.paymentInfo = paymentInfo
-//        }
-//    }
+    fileprivate func completePaymentFlow() {
+        UIAlertController.presentQuestion(text: "Proceder con el pago?", okTitle: "Ok", cancelTitle: "Cancelar", overViewController: self) { (pay) in
+            if pay {
+                self.paymentInfo?.payerCost = self.selectedPayerCost
+                self.paymentInfo?.completePaymentFlow()
+            }
+        }
+    }
     
 }
 
@@ -71,8 +90,12 @@ extension InstallmentsViewController: UITableViewDelegate, UITableViewDataSource
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let payerCost = installments?.payerCosts![indexPath.row]
-//        showInstallmentsViewController(withCardIssuer: cardIssuer)
+        selectedPayerCost = installments?.payerCosts![indexPath.row]
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        selectedPayerCost = nil
     }
     
 }

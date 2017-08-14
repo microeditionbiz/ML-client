@@ -10,12 +10,24 @@ import UIKit
 
 class PaymentMethodCell: UICollectionViewCell {
     
+    @IBOutlet weak var cardView: UIView!
     @IBOutlet weak var iconImageView: RemoteImageView!
     @IBOutlet weak var nameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+     
+        cardView.layer.cornerRadius = 10
+        cardView.clipsToBounds = true
         
+        self.clipsToBounds = false
+        self.layer.shadowOffset = CGSize.zero
+        self.layer.shadowRadius = 3.0
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.2
+        
+        self.layer.rasterizationScale = UIScreen.main.scale
+        self.layer.shouldRasterize = true;
     }
     
     func update(withPaymentMethod paymentMethod: PaymentMethod) {

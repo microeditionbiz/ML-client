@@ -12,11 +12,17 @@ class PayerCostCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        tintColor = UIColor.mpBlue
+        selectionStyle = .none
     }
     
     func update(withPayerCost payerCost: Installments.PayerCost) {
         textLabel?.text = payerCost.recommendedMessage
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        accessoryType = selected ? .checkmark : .none
     }
 
 }

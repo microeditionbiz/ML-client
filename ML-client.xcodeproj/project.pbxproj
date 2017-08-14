@@ -23,7 +23,6 @@
 		E78383B61F41139000688AD7 /* CardIssuersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78383B51F41139000688AD7 /* CardIssuersViewController.swift */; };
 		E78383B81F41139E00688AD7 /* InstallmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78383B71F41139E00688AD7 /* InstallmentsViewController.swift */; };
 		E78383C81F41306600688AD7 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78383C71F41306600688AD7 /* UIColor+Extension.swift */; };
-		E79089331F41EC97008650CF /* PaymentStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79089321F41EC97008650CF /* PaymentStepViewController.swift */; };
 		E79089351F41ED2D008650CF /* PaymentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79089341F41ED2D008650CF /* PaymentInfo.swift */; };
 		E79089371F41F279008650CF /* UIAlertController+Simplified.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79089361F41F279008650CF /* UIAlertController+Simplified.swift */; };
 		E79089391F41F34E008650CF /* PaymentMethodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79089381F41F34E008650CF /* PaymentMethodCell.swift */; };
@@ -54,7 +53,6 @@
 		E78383B51F41139000688AD7 /* CardIssuersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardIssuersViewController.swift; sourceTree = "<group>"; };
 		E78383B71F41139E00688AD7 /* InstallmentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstallmentsViewController.swift; sourceTree = "<group>"; };
 		E78383C71F41306600688AD7 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		E79089321F41EC97008650CF /* PaymentStepViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentStepViewController.swift; sourceTree = "<group>"; };
 		E79089341F41ED2D008650CF /* PaymentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentInfo.swift; sourceTree = "<group>"; };
 		E79089361F41F279008650CF /* UIAlertController+Simplified.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Simplified.swift"; sourceTree = "<group>"; };
 		E79089381F41F34E008650CF /* PaymentMethodCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodCell.swift; sourceTree = "<group>"; };
@@ -185,7 +183,6 @@
 				E78383B71F41139E00688AD7 /* InstallmentsViewController.swift */,
 				E79089381F41F34E008650CF /* PaymentMethodCell.swift */,
 				E78383B31F41137000688AD7 /* PaymentMethodsViewController.swift */,
-				E79089321F41EC97008650CF /* PaymentStepViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -335,7 +332,6 @@
 			files = (
 				E78383B81F41139E00688AD7 /* InstallmentsViewController.swift in Sources */,
 				E79089391F41F34E008650CF /* PaymentMethodCell.swift in Sources */,
-				E79089331F41EC97008650CF /* PaymentStepViewController.swift in Sources */,
 				E783839F1F41082E00688AD7 /* FileSystemHelper.swift in Sources */,
 				E783838B1F3FF18400688AD7 /* NetworkingHelper.swift in Sources */,
 				E78383B61F41139000688AD7 /* CardIssuersViewController.swift in Sources */,

@@ -10,13 +10,12 @@ import UIKit
 
 class PaymentMethodsViewController: UIViewController {
 
-//    struct CollectionViewDimensions {
-//        private init() {} // To avoid to create an instance from it
-//        static let horizontalSpace: CGFloat = 0
-//        static let verticalSpace: CGFloat = 5
-//        static let sectionHeaderHeight: CGFloat = 30
-//        static let sectionFooterHeight: CGFloat = 28
-//    }
+    struct CollectionViewDimensions {
+        private init() {} // To avoid to create an instance from it
+        static let verticalSpace: CGFloat = 20
+        static let minHorizontalSpace: CGFloat = 20
+        static let cellSize = CGSize(width: 100, height: 100)
+    }
     
     @IBOutlet weak var collectionView: UICollectionView!
     var paymentInfo: PaymentInfo?
@@ -35,7 +34,13 @@ class PaymentMethodsViewController: UIViewController {
             if let error = error {
                 UIAlertController.presentAlert(withError: error, overViewController: self)
             } else {
-                self.paymentMethods = paymentMethods
+                self.paymentMethods = paymentMethods?.filter({ (paymentMethod) -> Bool in
+                    if let type = paymentMethod.paymentTypeId {
+                        return type == "credit_card"
+                    } else {
+                        return false
+                    }
+                })
                 self.collectionView.reloadData()
             }
         }
@@ -75,6 +80,29 @@ extension PaymentMethodsViewController: UICollectionViewDelegateFlowLayout, UICo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let paymentMethod = paymentMethods![indexPath.row]
         showCardIssuersViewController(withPaymentMethod: paymentMethod)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CollectionViewDimensions.cellSize
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return CollectionViewDimensions.verticalSpace
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        // Center cells
+        
+        let width = UIScreen.main.bounds.width
+        
+        let cellByRowWithoutMinSpace = floor(width / CollectionViewDimensions.cellSize.width)
+        
+        let cellByRow = floor((width - CollectionViewDimensions.minHorizontalSpace * (cellByRowWithoutMinSpace + 1)) / CollectionViewDimensions.cellSize.width)
+        
+        let horizontalInset = (width - cellByRow * CollectionViewDimensions.cellSize.width) / (cellByRow + 1)
+        
+        return UIEdgeInsetsMake(CollectionViewDimensions.verticalSpace, horizontalInset, CollectionViewDimensions.verticalSpace, horizontalInset)
     }
     
 }

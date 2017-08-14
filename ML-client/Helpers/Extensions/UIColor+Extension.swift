@@ -12,7 +12,7 @@ import UIKit
 extension UIColor {
     
     static var mpBlue: UIColor {
-        return UIColor(red: 0, green: 158.0/225.0, blue: 227.0/225.0, alpha: 2.0)
+        return UIColor(red: 0, green: 158.0/255.0, blue: 227.0/255.0, alpha: 2.0)
     }
 
 }

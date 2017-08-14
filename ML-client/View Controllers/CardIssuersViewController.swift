@@ -10,6 +10,13 @@ import UIKit
 
 class CardIssuersViewController: UIViewController {
 
+    struct CollectionViewDimensions {
+        private init() {} // To avoid to create an instance from it
+        static let verticalSpace: CGFloat = 20
+        static let minHorizontalSpace: CGFloat = 20
+        static let cellSize = CGSize(width: 100, height: 100)
+    }
+    
     @IBOutlet weak var collectionView: UICollectionView!
     var paymentInfo: PaymentInfo?
     var cardIssuers: [CardIssuer]?
@@ -72,6 +79,27 @@ extension CardIssuersViewController: UICollectionViewDelegateFlowLayout, UIColle
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cardIssuer = cardIssuers![indexPath.row]
         showInstallmentsViewController(withCardIssuer: cardIssuer)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CollectionViewDimensions.cellSize
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return CollectionViewDimensions.verticalSpace
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        // Center cells
+        
+        let width = collectionView.bounds.width
+        
+        let cellByRow = floor((width - CollectionViewDimensions.minHorizontalSpace * 2.0) / CollectionViewDimensions.cellSize.width)
+        
+        let horizontalInset = (width - cellByRow * CollectionViewDimensions.cellSize.width) / (cellByRow + 1)
+        
+        return UIEdgeInsetsMake(CollectionViewDimensions.verticalSpace, horizontalInset, CollectionViewDimensions.verticalSpace, horizontalInset)
     }
     
 }

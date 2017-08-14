@@ -9,12 +9,17 @@
 import Foundation
 
 struct PaymentInfo {
-    var amount: Double
+    var amount: Double = 0
     var paymentMethod: PaymentMethod?
     var cardIssuer: CardIssuer?
-    var installments: Installments?
-
-    init(amount: Double) {
-        self.amount = amount
+    var payerCost: Installments.PayerCost?
+    private let paymentHandler: ((PaymentInfo) -> Void)
+    
+    init(paymentHandler: @escaping ((PaymentInfo) -> Void)) {
+        self.paymentHandler = paymentHandler
+    }
+    
+    func completePaymentFlow() {
+        self.paymentHandler(self)
     }
 }

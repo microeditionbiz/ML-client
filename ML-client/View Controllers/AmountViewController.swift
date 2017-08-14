@@ -14,6 +14,12 @@ class AmountViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var nextButtonBottomConstraint: NSLayoutConstraint!
     
+    lazy var paymentInfo: PaymentInfo = {
+        return PaymentInfo(paymentHandler: { [unowned self] paymentInfo in
+            self.completePaymentFlow(withPaymentInfo: paymentInfo)
+        })
+    }()
+    
     var currentAmount: Double {
         if let text = amountTextField.text, let amount = Double(text) {
             return amount
@@ -26,13 +32,18 @@ class AmountViewController: UIViewController {
         super.viewDidLoad()
 
         refreshNextButtonEnabledState()
-        amountTextField.becomeFirstResponder()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addKeyboardNotificationsObserver()
         addTextFieldTextDidChangeObserver()
+        amountTextField.becomeFirstResponder()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        amountTextField.resignFirstResponder()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -117,11 +128,27 @@ class AmountViewController: UIViewController {
     // MARK: - Navigation
 
     func showPaymentMethodViewController() {
-        performSegue(withIdentifier: "ShowPaymentMethods", sender: PaymentInfo(amount: currentAmount))
+        paymentInfo.amount = currentAmount
+        performSegue(withIdentifier: "ShowPaymentMethods", sender: nil)
+    }
+
+    func completePaymentFlow(withPaymentInfo paymentInfo: PaymentInfo) {
+        self.navigationController?.popToRootViewController(animated: true)
+        guard let paymentMethodName = paymentInfo.paymentMethod?.name, let cardIssuerName = paymentInfo.cardIssuer?.name, let recommendedMessage = paymentInfo.payerCost?.recommendedMessage else {
+            assertionFailure("Missing required info")
+            return
+        }
+        
+        amountTextField.text = ""
+        
+        let message = "Esta por pagar \(recommendedMessage) con el medio de pago \(paymentMethodName) del banco \(cardIssuerName)."
+        
+        UIAlertController.presentAlert(withTitle: "Pago", message: message, overViewController: self)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let viewController = segue.destination as? PaymentMethodsViewController, let paymentInfo = sender as? PaymentInfo {
+        if let viewController = segue.destination as? PaymentMethodsViewController {
             viewController.paymentInfo = paymentInfo
         }
     }
