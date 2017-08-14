@@ -18,6 +18,8 @@ class PaymentMethodsViewController: UIViewController {
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
     var paymentInfo: PaymentInfo?
     var paymentMethods: [PaymentMethod]?
     
@@ -30,7 +32,12 @@ class PaymentMethodsViewController: UIViewController {
     // MARK: - Networking
     
     private func loadData() {
+        setLoadingMode(on: true)
+        
         MPAPI.sharedInstance.paymentMethods { (paymentMethods, error) in
+            
+            self.setLoadingMode(on: false)
+            
             if let error = error {
                 UIAlertController.presentAlert(withError: error, overViewController: self)
             } else {
@@ -44,6 +51,18 @@ class PaymentMethodsViewController: UIViewController {
                 self.collectionView.reloadData()
             }
         }
+    }
+    
+    // MARK: - Content
+    
+    private func setLoadingMode(on: Bool) {
+        if on {
+            activityIndicatorView.startAnimating()
+        } else {
+            activityIndicatorView.stopAnimating()
+        }
+        activityIndicatorView.isHidden = !on
+        collectionView.isHidden = on
     }
     
     // MARK: - Navigation
@@ -60,6 +79,8 @@ class PaymentMethodsViewController: UIViewController {
     }
 
 }
+
+// MARK: - Extensions
 
 extension PaymentMethodsViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
 

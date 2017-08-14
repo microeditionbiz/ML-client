@@ -18,6 +18,9 @@ class CardIssuersViewController: UIViewController {
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    @IBOutlet weak var noDataLabel: UILabel!
+    
     var paymentInfo: PaymentInfo?
     var cardIssuers: [CardIssuer]?
     
@@ -35,14 +38,41 @@ class CardIssuersViewController: UIViewController {
             return
         }
         
+        setNoDataMode(on: false)
+        setLoadingMode(on: true)
+        
         MPAPI.sharedInstance.cardIssuers(paymentMethodId: paymentMethodId) { (cardIssuers, error) in
+            
+            self.setLoadingMode(on: false)
+            
             if let error = error {
                 UIAlertController.presentAlert(withError: error, overViewController: self)
             } else {
                 self.cardIssuers = cardIssuers
-                self.collectionView.reloadData()
+                let isEmpty = cardIssuers?.count == 0
+                if !isEmpty {
+                    self.collectionView.reloadData()
+                }
+                self.setNoDataMode(on: isEmpty)
             }
         }
+    }
+    
+    // MARK: - Content
+    
+    private func setLoadingMode(on: Bool) {
+        if on {
+            activityIndicatorView.startAnimating()
+        } else {
+            activityIndicatorView.stopAnimating()
+        }
+        activityIndicatorView.isHidden = !on
+        collectionView.isHidden = on
+    }
+    
+    private func setNoDataMode(on: Bool) {
+        noDataLabel.isHidden = !on
+        collectionView.isHidden = on
     }
     
     // MARK: - Navigation
@@ -59,6 +89,8 @@ class CardIssuersViewController: UIViewController {
     }
     
 }
+
+// MARK: - Extensions
 
 extension CardIssuersViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     

@@ -11,6 +11,8 @@ import UIKit
 class InstallmentsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
+    
     var paymentInfo: PaymentInfo?
     var installments: Installments?
     var selectedPayerCost: Installments.PayerCost?
@@ -19,7 +21,6 @@ class InstallmentsViewController: UIViewController {
         super.viewDidLoad()
         
         setupTableView()
-        
         loadData()
     }
     
@@ -31,6 +32,18 @@ class InstallmentsViewController: UIViewController {
         tableView.backgroundColor = UIColor.clear
     }
     
+    // MARK: - Content
+    
+    private func setLoadingMode(on: Bool) {
+        if on {
+            activityIndicatorView.startAnimating()
+        } else {
+            activityIndicatorView.stopAnimating()
+        }
+        activityIndicatorView.isHidden = !on
+        tableView.isHidden = on
+    }
+    
     // MARK: - Networking
     
     private func loadData() {
@@ -39,7 +52,12 @@ class InstallmentsViewController: UIViewController {
             return
         }
         
+        setLoadingMode(on: true)
+        
         MPAPI.sharedInstance.installments(paymentMethodId: paymentMethodId, issuerId: cardIssuerId, amount: amount) { (installments, error) in
+        
+            self.setLoadingMode(on: false)
+            
             if let error = error {
                 UIAlertController.presentAlert(withError: error, overViewController: self)
             } else {
@@ -72,6 +90,8 @@ class InstallmentsViewController: UIViewController {
     
 }
 
+// MARK: - Extensions
+
 extension InstallmentsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -91,7 +111,6 @@ extension InstallmentsViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedPayerCost = installments?.payerCosts![indexPath.row]
-        
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

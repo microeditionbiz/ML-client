@@ -149,9 +149,14 @@
                                     <outlet property="delegate" destination="0As-vf-Rfr" id="tDt-FT-bBg"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="cGP-l0-bRh">
+                                <rect key="frame" x="178" y="292" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.97244364019999996" green="0.97260981800000001" blue="0.97243314979999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="cGP-l0-bRh" firstAttribute="centerX" secondItem="dnF-nU-OJ0" secondAttribute="centerX" id="0Xw-7u-cRQ"/>
+                            <constraint firstItem="cGP-l0-bRh" firstAttribute="centerY" secondItem="dnF-nU-OJ0" secondAttribute="centerY" id="LPO-GU-ElQ"/>
                             <constraint firstAttribute="trailing" secondItem="n1b-YE-uom" secondAttribute="trailing" id="SVX-HT-Unq"/>
                             <constraint firstItem="n1b-YE-uom" firstAttribute="leading" secondItem="dnF-nU-OJ0" secondAttribute="leading" id="Xqk-KI-sSJ"/>
                             <constraint firstItem="mEJ-Sq-U6J" firstAttribute="top" secondItem="n1b-YE-uom" secondAttribute="bottom" id="bYh-v0-iPi"/>
@@ -162,6 +167,7 @@
                         <barButtonItem key="backBarButtonItem" title="Volver" id="WYc-vS-PcE"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="cGP-l0-bRh" id="sL5-Vd-UCl"/>
                         <outlet property="collectionView" destination="n1b-YE-uom" id="0Z2-GT-g8C"/>
                         <segue destination="nTf-Pl-NoU" kind="show" identifier="ShowCardIssuers" id="03U-0O-AmM"/>
                     </connections>
@@ -170,7 +176,7 @@
             </objects>
             <point key="canvasLocation" x="2082" y="-161"/>
         </scene>
-        <!--Seleccione un Banco-->
+        <!--Seleccione una Entidad-->
         <scene sceneID="PGe-0V-xQF">
             <objects>
                 <viewController id="nTf-Pl-NoU" customClass="CardIssuersViewController" customModule="ML_client" customModuleProvider="target" sceneMemberID="viewController">
@@ -242,28 +248,44 @@
                                     <outlet property="delegate" destination="nTf-Pl-NoU" id="hRA-ZK-aLY"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="eGk-Ph-zkI">
+                                <rect key="frame" x="177" y="291" width="20" height="20"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No se encontraron Entidades para el Medio de Pago seleccionado." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLE-sW-e3j">
+                                <rect key="frame" x="20" y="281" width="335" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.39995324609999999" green="0.40002685789999998" blue="0.39994865660000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.97244364019999996" green="0.97260981800000001" blue="0.97243314979999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="mLE-sW-e3j" secondAttribute="trailing" constant="20" id="1LP-c3-2XU"/>
+                            <constraint firstItem="mLE-sW-e3j" firstAttribute="leading" secondItem="iaK-NL-vp4" secondAttribute="leading" constant="20" id="2dz-Nw-HCt"/>
                             <constraint firstItem="KAv-Ak-aJI" firstAttribute="top" secondItem="dFA-2t-zJl" secondAttribute="bottom" id="Csy-yt-j0T"/>
+                            <constraint firstItem="mLE-sW-e3j" firstAttribute="centerY" secondItem="iaK-NL-vp4" secondAttribute="centerY" id="Etp-rc-CJt"/>
                             <constraint firstItem="gRN-5r-8Fz" firstAttribute="top" secondItem="KAv-Ak-aJI" secondAttribute="bottom" id="R9v-od-Ulc"/>
+                            <constraint firstItem="eGk-Ph-zkI" firstAttribute="centerX" secondItem="iaK-NL-vp4" secondAttribute="centerX" id="kby-hs-MtG"/>
                             <constraint firstItem="KAv-Ak-aJI" firstAttribute="leading" secondItem="iaK-NL-vp4" secondAttribute="leading" id="lIj-SP-cds"/>
+                            <constraint firstItem="eGk-Ph-zkI" firstAttribute="centerY" secondItem="iaK-NL-vp4" secondAttribute="centerY" id="tdv-dd-ofJ"/>
                             <constraint firstAttribute="trailing" secondItem="KAv-Ak-aJI" secondAttribute="trailing" id="ySe-y2-vk4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Seleccione un Banco" id="Sg1-em-cbq">
+                    <navigationItem key="navigationItem" title="Seleccione una Entidad" id="Sg1-em-cbq">
                         <barButtonItem key="backBarButtonItem" title="Volver" id="Ub5-xt-bIt"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="eGk-Ph-zkI" id="OvS-0R-6Do"/>
                         <outlet property="collectionView" destination="KAv-Ak-aJI" id="16s-jQ-CjD"/>
+                        <outlet property="noDataLabel" destination="mLE-sW-e3j" id="974-5o-N7j"/>
                         <segue destination="ZXG-Dm-Mm9" kind="show" identifier="ShowInstallments" id="SSQ-Gq-d61"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D2d-PX-IfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2951" y="-161"/>
+            <point key="canvasLocation" x="2949.5999999999999" y="-161.46926536731635"/>
         </scene>
-        <!--Plan de Cuotas-->
+        <!--Plan de Pagos-->
         <scene sceneID="cgF-hl-0M7">
             <objects>
                 <viewController id="ZXG-Dm-Mm9" customClass="InstallmentsViewController" customModule="ML_client" customModuleProvider="target" sceneMemberID="viewController">
@@ -303,17 +325,22 @@
                                     <outlet property="delegate" destination="ZXG-Dm-Mm9" id="9r7-hg-82M"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="OFL-Iy-oTc">
+                                <rect key="frame" x="177" y="291" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.97244364019999996" green="0.97260981800000001" blue="0.97243314979999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gPX-IV-al5" firstAttribute="top" secondItem="CMf-2L-0jD" secondAttribute="bottom" constant="10" id="1Zb-6E-yeh"/>
+                            <constraint firstItem="OFL-Iy-oTc" firstAttribute="centerX" secondItem="1WG-sa-Aj7" secondAttribute="centerX" id="LBd-4H-kmZ"/>
                             <constraint firstItem="CMf-2L-0jD" firstAttribute="leading" secondItem="1WG-sa-Aj7" secondAttribute="leading" constant="10" id="Q4I-jA-9g7"/>
                             <constraint firstAttribute="trailing" secondItem="CMf-2L-0jD" secondAttribute="trailing" constant="10" id="Zmc-ea-xkW"/>
                             <constraint firstItem="CMf-2L-0jD" firstAttribute="top" secondItem="4aX-Jp-0IC" secondAttribute="bottom" constant="10" id="b2g-6k-30g"/>
+                            <constraint firstItem="OFL-Iy-oTc" firstAttribute="centerY" secondItem="1WG-sa-Aj7" secondAttribute="centerY" id="q7T-l5-vEs"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Plan de Cuotas" id="1wR-Nj-ULf">
+                    <navigationItem key="navigationItem" title="Plan de Pagos" id="1wR-Nj-ULf">
                         <barButtonItem key="rightBarButtonItem" title="Pagar" id="TC3-1U-1KW">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             <connections>
@@ -323,6 +350,7 @@
                     </navigationItem>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="OFL-Iy-oTc" id="SbN-Np-8ok"/>
                         <outlet property="tableView" destination="CMf-2L-0jD" id="YvE-gR-Ig2"/>
                     </connections>
                 </viewController>
@@ -334,7 +362,7 @@
         <scene sceneID="HN6-1q-RdJ">
             <objects>
                 <navigationController id="J2p-iX-Fa1" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" barStyle="black" translucent="NO" id="Ben-ne-vUj">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="Ben-ne-vUj">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
