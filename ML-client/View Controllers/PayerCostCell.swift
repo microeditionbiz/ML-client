@@ -14,6 +14,7 @@ class PayerCostCell: UITableViewCell {
         super.awakeFromNib()
         tintColor = UIColor.mpBlue
         selectionStyle = .none
+        textLabel?.numberOfLines = 0
     }
     
     func update(withPayerCost payerCost: Installments.PayerCost) {

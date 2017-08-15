@@ -23,7 +23,10 @@ class NetworkingHelper: NSObject {
         
         let url = NetworkingHelper.buildURL(baseURL: baseURL, path: path, params: params)
         
-        let dataTask = sharedSession.dataTask(with: url) { (data, response, error) in
+        var request = URLRequest(url: url)
+        request.cachePolicy = .useProtocolCachePolicy
+
+        let dataTask = sharedSession.dataTask(with: request) { (data, response, error) in
             
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             

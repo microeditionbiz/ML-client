@@ -21,7 +21,7 @@ class CardIssuersViewController: UIViewController {
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var noDataLabel: UILabel!
     
-    var paymentInfo: PaymentInfo?
+    var paymentInfo: PaymentInfo!
     var cardIssuers: [CardIssuer]?
     
     override func viewDidLoad() {

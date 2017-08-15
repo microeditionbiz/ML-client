@@ -34,8 +34,8 @@ public class PaymentMethod: Mappable {
     public var accreditationTime: Int?
     public var status: String?
     public var id: String?
-    public var maxAllowedAmount: Int?
-    public var minAllowedAmount: Int?
+    public var maxAllowedAmount: Double?
+    public var minAllowedAmount: Double?
     public var secureThumbnail: String?
 
     public required init?(map: Map) {

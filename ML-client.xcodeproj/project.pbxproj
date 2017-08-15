@@ -138,8 +138,8 @@
 			children = (
 				E783838F1F41058300688AD7 /* CardIssuer.swift */,
 				E78383901F41058300688AD7 /* Installments.swift */,
-				E78383911F41058300688AD7 /* PaymentMethod.swift */,
 				E79089341F41ED2D008650CF /* PaymentInfo.swift */,
+				E78383911F41058300688AD7 /* PaymentMethod.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -147,9 +147,9 @@
 		E78383951F41082E00688AD7 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				E790893C1F41F396008650CF /* UI */,
 				E78383C21F41304A00688AD7 /* Extensions */,
 				E78383991F41082E00688AD7 /* Fle System */,
+				E790893C1F41F396008650CF /* UI */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -179,8 +179,8 @@
 				E78383B11F41135B00688AD7 /* AmountViewController.swift */,
 				E79089431F420304008650CF /* CardIssuerCell.swift */,
 				E78383B51F41139000688AD7 /* CardIssuersViewController.swift */,
-				E79089451F420737008650CF /* PayerCostCell.swift */,
 				E78383B71F41139E00688AD7 /* InstallmentsViewController.swift */,
+				E79089451F420737008650CF /* PayerCostCell.swift */,
 				E79089381F41F34E008650CF /* PaymentMethodCell.swift */,
 				E78383B31F41137000688AD7 /* PaymentMethodsViewController.swift */,
 			);

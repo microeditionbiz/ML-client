@@ -13,7 +13,7 @@ class InstallmentsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
-    var paymentInfo: PaymentInfo?
+    var paymentInfo: PaymentInfo!
     var installments: Installments?
     var selectedPayerCost: Installments.PayerCost?
     
@@ -30,6 +30,8 @@ class InstallmentsViewController: UIViewController {
         // This is to don't have empty cells
         tableView.tableFooterView = UIView()
         tableView.backgroundColor = UIColor.clear
+        tableView.estimatedRowHeight = 44
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     // MARK: - Content

@@ -10,6 +10,28 @@ import UIKit
 
 class PaymentMethodsViewController: UIViewController {
 
+    struct PaymentValidationError: LocalizedError {
+        enum ErrorType {
+            case amountBiggerThanMaxAllowed(PaymentMethod)
+            case amountLowerThanMinAllowed(PaymentMethod)
+        }
+        
+        let errorType: ErrorType
+        
+        var errorDescription: String? {
+            switch errorType {
+            case .amountLowerThanMinAllowed(let paymentMethod):
+                return "El monto ingresado es menor al mínimo permitido por \(paymentMethod.name ?? "la entidad de pago") (\(paymentMethod.minAllowedAmount!))"
+            case .amountBiggerThanMaxAllowed(let paymentMethod):
+                return "El monto ingresado es mayor al máximo permitido por \(paymentMethod.name ?? "la entidad de pago") (\(paymentMethod.maxAllowedAmount!))"
+            }
+        }
+        
+        init(type: ErrorType) {
+            self.errorType = type
+        }
+    }
+    
     struct CollectionViewDimensions {
         private init() {} // To avoid to create an instance from it
         static let verticalSpace: CGFloat = 20
@@ -20,7 +42,7 @@ class PaymentMethodsViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
-    var paymentInfo: PaymentInfo?
+    var paymentInfo: PaymentInfo!
     var paymentMethods: [PaymentMethod]?
     
     override func viewDidLoad() {
@@ -65,6 +87,23 @@ class PaymentMethodsViewController: UIViewController {
         collectionView.isHidden = on
     }
     
+    // MARK: - Validation
+    
+    fileprivate func validate(paymentMethod: PaymentMethod) throws {
+        
+        if let minAllowedAmount = paymentMethod.minAllowedAmount {
+            if paymentInfo.amount < minAllowedAmount {
+                throw PaymentValidationError(type: .amountLowerThanMinAllowed(paymentMethod))
+            }
+        }
+        
+        if let maxAllowedAmount = paymentMethod.maxAllowedAmount {
+            if paymentInfo.amount > maxAllowedAmount {
+                throw PaymentValidationError(type: .amountBiggerThanMaxAllowed(paymentMethod))
+            }
+        }
+    }
+    
     // MARK: - Navigation
 
     fileprivate func showCardIssuersViewController(withPaymentMethod paymentMethod: PaymentMethod) {
@@ -100,7 +139,12 @@ extension PaymentMethodsViewController: UICollectionViewDelegateFlowLayout, UICo
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let paymentMethod = paymentMethods![indexPath.row]
-        showCardIssuersViewController(withPaymentMethod: paymentMethod)
+        do {
+            try validate(paymentMethod: paymentMethod)
+            showCardIssuersViewController(withPaymentMethod: paymentMethod)
+        } catch {
+            UIAlertController.presentAlert(withError: error, overViewController: self)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
