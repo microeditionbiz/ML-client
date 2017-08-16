@@ -129,7 +129,7 @@ extension CardIssuersViewController: UICollectionViewDelegateFlowLayout, UIColle
         
         let cellByRow = floor((width - CollectionViewDimensions.minHorizontalSpace * 2.0) / CollectionViewDimensions.cellSize.width)
         
-        let horizontalInset = (width - cellByRow * CollectionViewDimensions.cellSize.width) / (cellByRow + 1)
+        let horizontalInset = floor((width - cellByRow * CollectionViewDimensions.cellSize.width) / (cellByRow + 1))
         
         return UIEdgeInsetsMake(CollectionViewDimensions.verticalSpace, horizontalInset, CollectionViewDimensions.verticalSpace, horizontalInset)
     }

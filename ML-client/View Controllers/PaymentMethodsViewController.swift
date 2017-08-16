@@ -159,13 +159,11 @@ extension PaymentMethodsViewController: UICollectionViewDelegateFlowLayout, UICo
         
         // Center cells
         
-        let width = UIScreen.main.bounds.width
+        let width = collectionView.bounds.width
         
-        let cellByRowWithoutMinSpace = floor(width / CollectionViewDimensions.cellSize.width)
+        let cellByRow = floor((width - CollectionViewDimensions.minHorizontalSpace * 2.0) / CollectionViewDimensions.cellSize.width)
         
-        let cellByRow = floor((width - CollectionViewDimensions.minHorizontalSpace * (cellByRowWithoutMinSpace + 1)) / CollectionViewDimensions.cellSize.width)
-        
-        let horizontalInset = (width - cellByRow * CollectionViewDimensions.cellSize.width) / (cellByRow + 1)
+        let horizontalInset = floor((width - cellByRow * CollectionViewDimensions.cellSize.width) / (cellByRow + 1))
         
         return UIEdgeInsetsMake(CollectionViewDimensions.verticalSpace, horizontalInset, CollectionViewDimensions.verticalSpace, horizontalInset)
     }
