@@ -57,7 +57,7 @@ class MPAPI: NSObject {
         }
     }
     
-    public func installments(paymentMethodId: String, issuerId: String, amount: Double, completion: @escaping ((Installments?, Error?) -> Void)) {
+    public func installments(paymentMethodId: String, issuerId: String, amount: NSNumber, completion: @escaping ((Installments?, Error?) -> Void)) {
         
         let params = ["public_key": publicKey,
                       "payment_method_id": paymentMethodId,

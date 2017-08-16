@@ -20,14 +20,6 @@ class AmountViewController: UIViewController {
         })
     }()
     
-    var currentAmount: Double {
-        if let text = amountTextField.text, let amount = Double(text) {
-            return amount
-        } else {
-            return 0
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,7 +29,6 @@ class AmountViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         addKeyboardNotificationsObserver()
-        addTextFieldTextDidChangeObserver()
         amountTextField.becomeFirstResponder()
     }
     
@@ -49,7 +40,6 @@ class AmountViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         removeKeyboardNotificatiosObserver()
-        removeTextFieldTextDidChangeObserver()
     }
     
     // MARK: - Action
@@ -57,25 +47,11 @@ class AmountViewController: UIViewController {
     @IBAction func nextAction(sender: UIButton) {
         showPaymentMethodViewController()
     }
-
-    // MARK: - Amount text field
-    
-    private func addTextFieldTextDidChangeObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(AmountViewController.textFieldTextDidChange(_:)), name: Notification.Name.UITextFieldTextDidChange, object: nil)
-    }
-    
-    private func removeTextFieldTextDidChangeObserver() {
-        NotificationCenter.default.removeObserver(self, name: Notification.Name.UITextFieldTextDidChange, object: nil)
-    }
-    
-    @objc private func textFieldTextDidChange(_ notification: Notification) {
-        refreshNextButtonEnabledState()
-    }
     
     // MARK: - Next button
     
-    private func refreshNextButtonEnabledState() {
-        let enabled = currentAmount > 0
+    fileprivate func refreshNextButtonEnabledState() {
+        let enabled = paymentInfo.amount.compare(NSNumber(value: 0)) == .orderedDescending
         nextButton.isEnabled = enabled
         nextButton.backgroundColor = enabled ? UIColor.mpBlue : UIColor.lightGray.withAlphaComponent(0.25)
     }
@@ -128,7 +104,6 @@ class AmountViewController: UIViewController {
     // MARK: - Navigation
 
     func showPaymentMethodViewController() {
-        paymentInfo.amount = currentAmount
         performSegue(withIdentifier: "ShowPaymentMethods", sender: nil)
     }
 
@@ -141,7 +116,7 @@ class AmountViewController: UIViewController {
         
         amountTextField.text = ""
         
-        let message = "Esta por pagar \(recommendedMessage) con el medio de pago \(paymentMethodName) del banco \(cardIssuerName)."
+        let message = "Usted pagó \(recommendedMessage) con el medio de pago \(paymentMethodName) del banco \(cardIssuerName)."
         
         UIAlertController.presentAlert(withTitle: "Pago", message: message, overViewController: self)
         
@@ -151,6 +126,21 @@ class AmountViewController: UIViewController {
         if let viewController = segue.destination as? PaymentMethodsViewController {
             viewController.paymentInfo = paymentInfo
         }
+    }
+
+}
+
+extension AmountViewController: UITextFieldDelegate {
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        var newValue = (textField.text as NSString?)?.replacingCharacters(in: range, with: string)
+        newValue = newValue?.components(separatedBy: NSCharacterSet.decimalDigits.inverted).joined()
+        paymentInfo.setAmount(string: newValue!)
+        textField.text = paymentInfo.formattedAmount
+        refreshNextButtonEnabledState()
+        
+        return false
     }
 
 }

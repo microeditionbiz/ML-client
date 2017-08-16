@@ -9,10 +9,23 @@
 import Foundation
 
 struct PaymentInfo {
-    var amount: Double = 0
+    
+    private var amountFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.locale = Locale.current
+        return formatter
+    }()
+    
+    var amount = NSNumber(value: 0)
+    var formattedAmount: String {
+        return amountFormatter.string(from: amount) ?? ""
+    }
+    
     var paymentMethod: PaymentMethod?
     var cardIssuer: CardIssuer?
     var payerCost: Installments.PayerCost?
+    
     private let paymentHandler: ((PaymentInfo) -> Void)
     
     init(paymentHandler: @escaping ((PaymentInfo) -> Void)) {
@@ -22,4 +35,9 @@ struct PaymentInfo {
     func completePaymentFlow() {
         self.paymentHandler(self)
     }
+    
+    mutating func setAmount(string: String) {
+        amount = amountFormatter.number(from: string) ?? NSNumber(value: 0)
+    }
+    
 }

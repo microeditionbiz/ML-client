@@ -92,13 +92,13 @@ class PaymentMethodsViewController: UIViewController {
     fileprivate func validate(paymentMethod: PaymentMethod) throws {
         
         if let minAllowedAmount = paymentMethod.minAllowedAmount {
-            if paymentInfo.amount < minAllowedAmount {
+            if paymentInfo.amount.compare(minAllowedAmount) == .orderedAscending {
                 throw PaymentValidationError(type: .amountLowerThanMinAllowed(paymentMethod))
             }
         }
         
         if let maxAllowedAmount = paymentMethod.maxAllowedAmount {
-            if paymentInfo.amount > maxAllowedAmount {
+            if paymentInfo.amount.compare(maxAllowedAmount) == .orderedDescending {
                 throw PaymentValidationError(type: .amountBiggerThanMaxAllowed(paymentMethod))
             }
         }

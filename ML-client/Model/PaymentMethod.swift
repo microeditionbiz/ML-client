@@ -34,15 +34,30 @@ public class PaymentMethod: Mappable {
     public var accreditationTime: Int?
     public var status: String?
     public var id: String?
-    public var maxAllowedAmount: Double?
-    public var minAllowedAmount: Double?
+    public var maxAllowedAmount: NSNumber?
+    public var minAllowedAmount: NSNumber?
     public var secureThumbnail: String?
-
+    
+    static var numberTransform: TransformOf<NSNumber, Double> = {
+        return TransformOf<NSNumber, Double>(fromJSON: { (value: Double?) -> NSNumber? in
+            guard let numberDouble = value else {
+                return nil
+            }
+            return NSNumber(value: numberDouble)
+        }, toJSON: { (value: NSNumber?) -> Double? in
+            if let value = value {
+                return value.doubleValue
+            }
+            return nil
+        })
+    }()
+    
     public required init?(map: Map) {
         
     }
     
     public func mapping(map: Map) {
+        
         deferredCapture <- map[SerializationKeys.deferredCapture]
         name <- map[SerializationKeys.name]
         thumbnail <- map[SerializationKeys.thumbnail]
@@ -50,8 +65,9 @@ public class PaymentMethod: Mappable {
         accreditationTime <- map[SerializationKeys.accreditationTime]
         status <- map[SerializationKeys.status]
         id <- map[SerializationKeys.id]
-        maxAllowedAmount <- map[SerializationKeys.maxAllowedAmount]
-        minAllowedAmount <- map[SerializationKeys.minAllowedAmount]
+        maxAllowedAmount <- (map[SerializationKeys.maxAllowedAmount], PaymentMethod.numberTransform)
+        minAllowedAmount <- (map[SerializationKeys.minAllowedAmount], PaymentMethod.numberTransform)
+
         secureThumbnail <- map[SerializationKeys.secureThumbnail]
     }
 
